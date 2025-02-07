@@ -20,6 +20,7 @@ interface TShirtIconProps {
   isExpanded: boolean;
 }
 
+// Tab switcher component for Inventory/Order Queue views
 const TabSwitcher = () => {
   const [activeTab, setActiveTab] = useState('inventory');
 
@@ -50,10 +51,7 @@ const TabSwitcher = () => {
   );
 };
 
-
-
-
-
+// T-shirt icon component with color and SVG mapping
 const TShirtIcon: React.FC<TShirtIconProps> = ({ color, isExpanded }) => {
   const colorMap: Record<TShirtColor, string> = {
     white: 'bg-[#333333]',
@@ -79,6 +77,7 @@ const TShirtIcon: React.FC<TShirtIconProps> = ({ color, isExpanded }) => {
   );
 };
 
+// Main inventory management component
 const InventoryManagement: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [activeTab, setActiveTab] = useState('inventory');
@@ -93,6 +92,7 @@ const InventoryManagement: React.FC = () => {
     { id: 8, name: 'Gildan T-Shirt - White / L', color: 'white', size: 'L', quantity: 29, max: 24 }
   ]);
 
+    // Quantity update handler with bounds checking
   const handleQuantityChange = (id: number, increment: boolean) => {
     setInventoryData(prevData =>
       prevData.map(item =>
@@ -185,7 +185,6 @@ const InventoryManagement: React.FC = () => {
                       />
                     </button>
                   </div>
-
                 </div>
               ))}
             </div>
